@@ -5,9 +5,13 @@ import {
     studentRouter,
     }
     from "./routers/index.js";
-dotenv.config();//config port
+import cors from "cors";
 
+dotenv.config();//config port
 const app = express();
+
+// Kích hoạt CORS cho tất cả các routes
+app.use(cors());
 
 app.use(express.json());//middlewares read body
 //call route

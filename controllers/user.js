@@ -1,3 +1,4 @@
+import { response } from 'express';
 import { body, validationResult } from 'express-validator';
 const login = async (req,res) =>{
     // Finds the validation errors in this request and wraps them in an object with handy functions
@@ -5,7 +6,11 @@ const login = async (req,res) =>{
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
     }
-    res.send('POST login user');
+    const {email,password} = req.body;
+    res.status(200).json({ 
+        message: 'login successful', 
+        data: 'details user here' 
+    });    
 }
 const register = async (req,res) => {
     res.send('POST register user');
